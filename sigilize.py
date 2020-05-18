@@ -27,14 +27,8 @@ import re
 import drawSvg as svg
 
 def prepareMessage(message):
-    vowels = [ 'a', 'e', 'i', 'o', 'u']
     message = re.sub("[^a-zA-Z]+", "", message) # get rid of all non-alphabetic characters
     message = message.lower()
-    """
-    for char in message:
-        if char in vowels:
-                message = message.replace(char,"") # get rid of all vowels
-    """
     message = "".join(dict.fromkeys(message)) # remove duplicate letters
     return message
 
@@ -165,7 +159,7 @@ def main():
 
     else:
         print("--------------------------------------------")
-        print("Please provide arguments: <type> <message> (<filename>)")
+        print("Please provide arguments: <string> <planet> <filename>")
         print("--------------------------------------------")
 
 if __name__ == "__main__":
