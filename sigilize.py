@@ -24,7 +24,7 @@ SOFTWARE.
 import sys
 import math
 import re
-import drawSvg as svg
+import drawsvg as svg
 
 def prepareMessage(message):
     message = re.sub("[^a-zA-Z]+", "", message) # get rid of all non-alphabetic characters
@@ -128,7 +128,7 @@ def drawSigil(points, canvas, color='white'): # draw sigil from coordinate list
         else:
             x = point[0] - originX # abs. to rel. coords
             y = point[1] - originY # abs. to rel. coords
-            p.l(x, y) # draw
+            p.l(x,y) # draw
             originX = point[0]
             originY = point[1]
 
@@ -140,7 +140,7 @@ def createSigil(message, planet, fileName):
     planets = ["moon", "mercury", "venus", "sun", "mars", "jupiter", "saturn"]
     planet = planets.index(planet.lower())
     # set up SVG canvas
-    d = svg.Drawing(400, 400, origin='center') # define canvas
+    d = svg.Drawing(400, 400, origin='center', context=svg.Context(invert_y=True)) # define canvas
 
     # draw sigils
     message = prepareMessage(message)
@@ -149,7 +149,7 @@ def createSigil(message, planet, fileName):
     drawSigil( coordList, d, "black")
 
     # save sigil to SVG file
-    d.saveSvg(fileName)
+    d.save_svg(fileName)
 
 def main():
     argNo = len(sys.argv) - 1
