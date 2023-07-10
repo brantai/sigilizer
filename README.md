@@ -9,13 +9,13 @@ sigilize.py <string to be sigilized> <planet name> <filename>
 ## Install Dependencies
 
 ```
-pip install drawSvg
+pip install "drawsvg~=2.0"
 ```
 
 ## Example:
 
 ```
-sigilize.py "Hello World" mercury helloworld.svg
+sigilize.py -m "Hello World" -p mercury -f helloworld.svg
 ```
 
 ## Result:
